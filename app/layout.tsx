@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import { Rubik } from "next/font/google";
+
+import Footer from "./footer";
+import Header from "./header";
+
 import "./globals.css";
 
 const mainFont = Rubik({
@@ -21,7 +25,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${mainFont.variable} font-sans`}>{children}</body>
+      <body className={`${mainFont.variable} font-sans`}>
+        <main className="min-h-screen w-full flex flex-col">
+          <Header />
+          <div className="flex-1">{children}</div>
+          <Footer />
+        </main>
+      </body>
     </html>
   );
 }
